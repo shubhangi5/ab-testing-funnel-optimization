@@ -1,7 +1,6 @@
 pandas
 numpy
 scipy
-statsmodels
 matplotlib
-jupyter
+#jupyter
 duckdb

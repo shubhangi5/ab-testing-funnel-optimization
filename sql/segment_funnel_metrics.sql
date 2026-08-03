@@ -1,15 +1,15 @@
-with base as (
-    Select * from read_csv_auto('data/raw/food_delivery_ab_experiment.csv')
+WITH base AS (
+    SELECT *
+    FROM read_csv_auto('data/raw/food_delivery_ab_experiment.csv')
 )
 
 SELECT
     experiment_group,
+    city,
+    device_type,
+    user_segment,
 
     COUNT(*) AS sessions,
-
-    SUM(restaurant_viewed) AS restaurant_views,
-    SUM(item_added_to_cart) AS add_to_cart_sessions,
-    SUM(checkout_started) AS checkout_sessions,
     SUM(booking_confirmed) AS bookings,
 
     ROUND(100.0 * SUM(restaurant_viewed) / COUNT(*), 2) AS session_to_restaurant_view_rate,
@@ -34,23 +34,16 @@ SELECT
     ROUND(
         AVG(CASE WHEN booking_confirmed = 1 THEN order_value END),
         2
-    ) AS avg_order_value,
-
-    ROUND(
-        100.0 * SUM(cancelled) / NULLIF(SUM(booking_confirmed), 0),
-        2
-    ) AS cancellation_rate,
-
-    ROUND(
-        100.0 * SUM(refunded) / NULLIF(SUM(booking_confirmed), 0),
-        2
-    ) AS refund_rate,
-
-    ROUND(
-        100.0 * SUM(delayed_delivery) / NULLIF(SUM(booking_confirmed), 0),
-        2
-    ) AS delayed_delivery_rate
+    ) AS avg_order_value
 
 FROM base
-GROUP BY experiment_group
-ORDER BY experiment_group;
+GROUP BY
+    experiment_group,
+    city,
+    device_type,
+    user_segment
+ORDER BY
+    city,
+    device_type,
+    user_segment,
+    experiment_group;

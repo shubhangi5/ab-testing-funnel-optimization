@@ -1,0 +1,12 @@
+segment_type,segment_value,control_sessions,treatment_sessions,control_rate_pct,treatment_rate_pct,absolute_lift_pp,relative_lift_pct,p_value,statistically_significant
+user_segment,high_value_user,3823,3751,21.45,25.03,3.58,16.71,0.000221,True
+city,Mumbai,5117,4928,15.2,17.55,2.35,15.45,0.001466,True
+device_type,Web,2491,2601,14.33,16.53,2.2,15.35,0.029897,True
+city,Delhi,5343,5474,14.22,16.08,1.85,13.02,0.007257,True
+device_type,iOS,7015,6864,15.28,16.97,1.69,11.07,0.00675,True
+city,Hyderabad,4299,4224,14.7,16.29,1.59,10.79,0.042919,True
+user_segment,new_user,8676,8799,11.25,12.74,1.49,13.25,0.00243,True
+device_type,Android,15531,15498,14.96,16.4,1.44,9.61,0.000494,True
+user_segment,returning_user,12538,12413,15.61,16.73,1.12,7.2,0.015906,True
+city,Pune,3216,3232,15.45,16.58,1.13,7.31,0.216051,False
+city,Bangalore,7062,7105,15.38,16.44,1.06,6.9,0.084282,False
